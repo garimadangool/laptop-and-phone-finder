@@ -43,6 +43,7 @@ app.add_middleware(
         "http://localhost:4173",
         "http://localhost:3000",
         "http://localhost:8501",
+"https://laptopfindernepal.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
