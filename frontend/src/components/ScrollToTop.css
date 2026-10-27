@@ -1,0 +1,48 @@
+.scroll-top {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--violet));
+  box-shadow: 0 10px 24px rgba(56, 66, 199, 0.38);
+  cursor: pointer;
+  animation: scroll-top-in 0.18s ease;
+}
+
+.scroll-top:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(56, 66, 199, 0.46);
+}
+
+@keyframes scroll-top-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .scroll-top {
+    right: 0.9rem;
+    bottom: 4.4rem;
+    width: 42px;
+    height: 42px;
+  }
+}

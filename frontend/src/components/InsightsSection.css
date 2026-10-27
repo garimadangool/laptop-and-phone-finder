@@ -1,0 +1,232 @@
+.insights {
+  background:
+    radial-gradient(700px 360px at 110% 10%, rgba(124, 58, 237, 0.06), transparent 55%),
+    var(--bg);
+}
+
+.insights__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+/* ---------- Chart card ---------- */
+.chart-card {
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.35rem 1.35rem 1.1rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-3px);
+  border-color: #c9cff5;
+  box-shadow: var(--shadow-md);
+}
+
+.chart-card--wide {
+  grid-column: 1 / -1;
+}
+
+.chart-card__head {
+  margin-bottom: 0.9rem;
+}
+
+.chart-card__head h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.chart-card__head p {
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Tooltip ---------- */
+.chart-tip {
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.82rem;
+}
+
+.chart-tip__label {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.chart-tip__value {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.chart-tip__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chart-tip__sub {
+  margin-top: 0.3rem;
+  padding-top: 0.3rem;
+  border-top: 1px dashed var(--line);
+  color: var(--faint);
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+
+/* ---------- Legends ---------- */
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  margin-top: 0.55rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.chart-legend span,
+.donut-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chart-legend i,
+.donut-legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ---------- Donut ---------- */
+.donut-wrap {
+  position: relative;
+}
+
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  text-align: center;
+}
+
+.donut-center strong {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.donut-center small {
+  color: var(--faint);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.donut-legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1rem;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ---------- Loading skeletons ---------- */
+.skel-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-lg);
+  min-height: 300px;
+}
+
+.skel-card--wide {
+  grid-column: 1 / -1;
+  min-height: 340px;
+}
+
+.skel-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(35, 55, 184, 0.07),
+    transparent
+  );
+  animation: insights-sweep 1.4s ease infinite;
+}
+
+@keyframes insights-sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skel-card::after {
+    animation: none;
+  }
+}
+
+/* ---------- Error state ---------- */
+.insights__state {
+  max-width: 460px;
+  margin-inline: auto;
+  text-align: center;
+  background: var(--surface);
+  border: 2px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+  padding: 2.6rem 2rem;
+}
+
+.insights__state-icon {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.insights__state h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.insights__state p {
+  margin: 0.45rem 0 1.1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .insights__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skel-card {
+    min-height: 240px;
+  }
+}

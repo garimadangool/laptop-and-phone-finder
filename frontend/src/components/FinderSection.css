@@ -1,0 +1,84 @@
+.finder {
+  background:
+    radial-gradient(800px 400px at 110% 10%, rgba(124, 58, 237, 0.08), transparent 60%),
+    var(--bg-soft);
+}
+
+.finder__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.finder__step {
+  animation: finder-step-in 0.28s ease;
+  scroll-margin-top: 4.5rem;
+}
+
+@keyframes finder-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.finder__step h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.9rem;
+}
+
+.finder__step-num {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--violet));
+  box-shadow: 0 5px 12px rgba(56, 66, 199, 0.3);
+}
+
+.finder__optional {
+  margin: -0.6rem 0 0.9rem;
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+
+.finder__error {
+  color: var(--red);
+  font-weight: 600;
+  background: #fdecec;
+  border: 1px solid #f5c6c6;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+}
+
+.finder__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+
+.finder__share-hint {
+  margin: 1.4rem auto 0;
+  max-width: 36rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--muted, #6b7280);
+}
+
+.finder__cta {
+  font-size: 1.12rem;
+  padding: 1rem 2.6rem;
+}

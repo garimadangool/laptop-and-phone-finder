@@ -1,0 +1,147 @@
+.saved {
+  background: var(--bg-soft);
+}
+
+.saved__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.saved__empty {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.saved__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.fav-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.fav-card:hover {
+  transform: translateY(-3px);
+  border-color: #f0b7bd;
+  box-shadow: var(--shadow-md);
+}
+
+.fav-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.fav-card__head h4 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fav-card__score {
+  flex-shrink: 0;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+}
+
+.fav-card__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.fav-card__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.7rem;
+}
+
+.fav-card__price {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary-dark);
+  white-space: nowrap;
+}
+
+.fav-card__actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.fav-card__actions .btn-details {
+  font-size: 0.76rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.42rem 0.85rem;
+  border: none;
+  color: #fff;
+  background: linear-gradient(100deg, var(--primary), var(--violet));
+  box-shadow: 0 4px 10px rgba(56, 66, 199, 0.28);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fav-card__actions .btn-details:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 16px rgba(56, 66, 199, 0.38);
+}
+
+.fav-card__remove {
+  font-size: 0.76rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.42rem 0.85rem;
+  border: 2px solid var(--line-strong);
+  color: var(--red);
+  background: var(--surface);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.fav-card__remove:hover {
+  border-color: var(--red);
+  background: #fdecec;
+}
+
+.saved__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.saved__actions .btn-ghost {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.5rem;
+}
+
+@media (max-width: 560px) {
+  .fav-card__footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

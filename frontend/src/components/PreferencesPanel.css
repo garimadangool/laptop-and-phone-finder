@@ -1,0 +1,207 @@
+.prefs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem;
+}
+
+.prefs__group {
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.05rem 1.15rem 1.15rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.prefs__group:hover {
+  border-color: #cfd6f7;
+  box-shadow: var(--shadow-sm);
+}
+
+.prefs__legend {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+
+.prefs__legend .spec-tip {
+  margin-left: 0.25rem;
+}
+
+/* Chip rows */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chip-btn {
+  padding: 0.42rem 0.9rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  transition: all 0.14s ease;
+}
+
+.chip-btn:hover {
+  border-color: #b9c2f4;
+  color: var(--primary);
+}
+
+.chip-btn.is-active {
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+
+/* Tier chips show a hint under the label */
+.tier-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 0.42rem 0.8rem;
+  line-height: 1.25;
+}
+
+.tier-chip small {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: inherit;
+  opacity: 0.75;
+}
+
+/* Brand select */
+.brand-select {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.brand-select:hover,
+.brand-select:focus {
+  border-color: var(--primary);
+}
+
+/* Toggles */
+.toggle-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 420px));
+  justify-content: center;
+  gap: 1.1rem;
+}
+
+.toggle-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 0.95rem 1.2rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.toggle-card:hover {
+  border-color: #b9c2f4;
+}
+
+.toggle-card.is-on {
+  border-color: var(--violet);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.14);
+}
+
+.toggle-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.toggle-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.toggle-card__hint {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* Switch */
+.switch {
+  position: relative;
+  flex-shrink: 0;
+  width: 52px;
+  height: 29px;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.switch__track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--line-strong);
+  transition: background-color 0.18s ease;
+}
+
+.switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(25, 29, 53, 0.3);
+  transition: transform 0.18s ease;
+}
+
+.switch input:checked ~ .switch__track {
+  background: linear-gradient(100deg, var(--primary), var(--violet));
+}
+
+.switch input:checked ~ .switch__thumb {
+  transform: translateX(23px);
+}
+
+.switch input:focus-visible ~ .switch__track {
+  outline: 3px solid var(--violet);
+  outline-offset: 2px;
+}
+
+@media (max-width: 860px) {
+  .prefs {
+    grid-template-columns: 1fr;
+  }
+
+  .toggle-row {
+    grid-template-columns: 1fr;
+  }
+}
